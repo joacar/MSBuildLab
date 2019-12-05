@@ -1,0 +1,27 @@
+﻿<!--Root -->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <!-- 
+        Each test project should have a property called TestCategory
+          Possible values is [Unit, Integration, Functional]
+        How can I filter thouse out in MSBuild? 
+        Using 'Condition="@(.. ->'$(TestCategory)' == 'Unit')" or similar
+     -->
+    <UnitTestProjects Include="$(MSBuildStartupDirectory)/test/**/*UnitTest.csproj" />
+    <IntegrationTestProjects Include="$(MSBuildStartupDirectory)/test/**/*IntegrationTest.csproj" />
+    <TestProjects Include="$(MSBuildStartupDirectory)/test/**/*.csproj"
+                  Condition="'$(TestCategory)' == 'Unit'" />
+  </ItemGroup>
+
+  <Target Name="PrintTestProjects" DependsOnTargets="PrintUnitTests;PrintIntegrationTests">
+    <Message Text="@(TestProjects)" Importance="High" />
+  </Target>
+
+  <Target Name="PrintIntegrationTests">
+    <Message Text="Integration test projects: @(IntegrationTestProjects)" Importance="High" />
+  </Target>
+
+  <Target Name="PrintUnitTests">
+    <Message Text="Unit test projects:        @(UnitTestProjects)" Importance="High" />
+  </Target>
+</Project>

@@ -37,3 +37,27 @@ Run `dotnet pack -c Release -p:CI=true` and the target will be included and a .s
 ### AzureDevOps Server
 
 Follow the steps in this [blog post](https://www.liftrtech.net/home/blog?name=ASP.NET-Core-Debugging-Nuget-Packages-with-AzureDevOps-VSTS-Symbol-Server) to get up and running.
+
+## Versioning
+
+Versioning use the excellent [MinVer](https://github.com/adamralph/minver). Settings are present in `Version.props` and the target that update `AssemblyVersion` and `AssemblyFileVersion` is `Version.targets`.
+
+### Parameters
+
+| Property | Value | Comment |
+|----------|-------|---------|
+| RevisionId | Incremental integer unique for each build scoped to version | Default is try read value from `Build.BuildId` in Azure DevOps |
+
+### Usage
+
+Add `Version.props` and `Version.targets` to suitable directory and import props and targets from respective root files. Example belows assumes the two files are in the root directory.
+
+To set the `RevisionId` from example environment variable on other build system, simple add it as parameter `dotnet build -c Release -p:RevisionId=$(APPVEYOR_BUILD_BNUMBER)` or update the `Version.targets` file.
+
+```xml
+<!-- Directory.Build.props -->
+<Import Project="Version.props">
+
+<!-- src/Directory.Build.targets -->
+<Import Project="Version.targets" />
+```

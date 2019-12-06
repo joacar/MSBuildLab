@@ -59,5 +59,5 @@ To set the `RevisionId` from example environment variable on other build system,
 <Import Project="Version.props">
 
 <!-- src/Directory.Build.targets -->
-<Import Project="Version.targets" />
+<Import Project="../Version.targets" />
 ```

@@ -1,4 +1,4 @@
-﻿<!--Root -->
+﻿<!--src/Directory.Build.targets -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>

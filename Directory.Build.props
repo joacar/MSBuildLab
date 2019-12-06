@@ -3,10 +3,13 @@
   <PropertyGroup>
     <Nullable>enable</Nullable>
     <LangVersion>8.0</LangVersion>
+    <ArtifactsDir>$(MSBuildStartupDirectory)/.artifacts</ArtifactsDir>
   </PropertyGroup>
 
   <PropertyGroup>
-    <BaseIntermediateOutputPath>$(MSBuildStartupDirectory)/.artifacts/build/obj/$(MSBuildProjectName)/</BaseIntermediateOutputPath>
-    <BaseOutputPath>$(MSBuildStartupDirectory)/.artifacts/build/bin/$(MSBuildProjectName)/</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(ArtifactsDir)/build/obj/$(MSBuildProjectName)/</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(ArtifactsDir)/build/bin/$(MSBuildProjectName)/</BaseOutputPath>
   </PropertyGroup>
+
+  <Import Project="Version.props" />
 </Project>

@@ -33,3 +33,7 @@ Place the snippet in Directory.Build.targets
 ```
 
 Run `dotnet pack -c Release -p:CI=true` and the target will be included and a .snupkg will be created.
+
+### AzureDevOps Server
+
+Follow the steps in this [blog post](https://www.liftrtech.net/home/blog?name=ASP.NET-Core-Debugging-Nuget-Packages-with-AzureDevOps-VSTS-Symbol-Server) to get up and running.

@@ -1,0 +1,10 @@
+﻿<!--Root -->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <CI Condition="'$(CI)' == ''">false</CI>
+  </PropertyGroup>
+
+  <Import Project="../SourceLink.targets" Condition="'$(CI)' == 'true'" />
+
+</Project>

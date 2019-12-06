@@ -52,7 +52,7 @@ Versioning use the excellent [MinVer](https://github.com/adamralph/minver). Sett
 
 Add `Version.props` and `Version.targets` to suitable directory and import props and targets from respective root files. Example belows assumes the two files are in the root directory.
 
-To set the `RevisionId` from example environment variable on other build system, simple add it as parameter `dotnet build -c Release -p:RevisionId=$(APPVEYOR_BUILD_BNUMBER)` or update the `Version.targets` file.
+To set the `RevisionId` from example environment variable on other build system, simple add it as parameter `dotnet build -c Release -p:RevisionId=$(APPVEYOR_BUILD_NUMBER)` or update the `Version.targets` file.
 
 ```xml
 <!-- Directory.Build.props -->

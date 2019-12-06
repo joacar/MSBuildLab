@@ -1,3 +1,22 @@
 <!-- src/Directory.Build.props -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Import Project="../Directory.Build.props" />
+
+  <PropertyGroup Label="Library details">
+    <PackageId>Joacar.Application</PackageId>
+    <Title>MSBuild experiment</Title>
+    <Authors>Joakim Carselind</Authors>
+    <PackageDescription>Experiments involving MSBuild</PackageDescription>
+    <Description>Experiments with MSBuild to create reusable components and extend functionality</Description>
+    <Copyright>Joakim Carselind (C) 2019</Copyright>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReleaseNotes>
+      <!-- Release notes goes here -->
+    </PackageReleaseNotes>
+    <PackageOutputPath>$(MSBuildStartupDirectory)/.artifacts</PackageOutputPath>
+    <RepositoryUrl>https://github.com/joacar/MSBuildLab</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
 </Project>

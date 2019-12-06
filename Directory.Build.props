@@ -1,7 +1,12 @@
 <!--Root -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Nullable>enabled</Nullable>
+    <Nullable>enable</Nullable>
     <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>$(MSBuildStartupDirectory)/.artifacts/build/obj/$(MSBuildProjectName)/</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(MSBuildStartupDirectory)/.artifacts/build/bin/$(MSBuildProjectName)/</BaseOutputPath>
   </PropertyGroup>
 </Project>

@@ -10,4 +10,26 @@ Reason: Hinder slow running tests and tests that have external dependencies that
 
 Hypothesis: Use MSBuild props/targets to achieve this
 
+## SourceLink
 
+Target that include SourceLink references based on build system.
+
+| Property | Value | Comment |
+|----------|---------|---------|
+| SourceLinkProvider | Microsoft.SourceLink.GitHub | Library for the specific source control provider |
+
+For full list of available libraries check [here](https://github.com/dotnet/sourcelink).
+
+### Usage
+
+Place the snippet in Directory.Build.targets
+
+```xml
+  <PropertyGroup>
+    <CI Condition="'$(CI)' == ''">false</CI>
+  </PropertyGroup>
+
+  <Import Project="../SourceLink.targets" Condition="'$(CI)' == 'true'" />
+```
+
+Run `dotnet pack -c Release -p:CI=true` and the target will be included and a .snupkg will be created.

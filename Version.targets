@@ -1,16 +1,18 @@
-﻿<!--Root -->
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <PackageReference Include="MinVer" Version="2.0.0" PrivateAssets="All" />
   </ItemGroup>
 
   <Target Name="UpdateVersion" AfterTargets="MinVer">
-    <Message Text="GitCommitId: $(GitCommitId)" Importance="High" />
-    <Message Text="GitCommitHash: $(GitCommitHash)" Importance="High" />
-    <Message Text="MinVerBuildMetadata: $(MinVerBuildMetadata)" Importance="High" />
-    <Message Text="MinVerAutoIncrement: $(MinVerAutoIncrement)" Importance="High" />
-    <Message Text="MinVerVersion: $(MinVerVersion)" Importance="High" />
-  </Target>
+    <PropertyGroup>
+      <!-- Get revision from AzDo. This is typically in Build number format as $(rev:.r) -->
+      <RevisionId Condition="'$(RevisionId)' == ''">$(BUILD_BUILDID)</RevisionId>
+      <RevisionId Condition="'$(RevisionId)' == ''">0</RevisionId>
 
+      <!-- Write correct values to AssmeblyInfo.cs -->
+      <AssemblyVersion>$(MinVerVersion)</AssemblyVersion>
+      <AssemblyFileVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).$(RevisionId)</AssemblyFileVersion>
+      <FileVersion>$(AssemblyFileVersion)</FileVersion>
+    </PropertyGroup>
+  </Target>
 </Project>

@@ -1,6 +1,7 @@
-<!--Root -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup Label="Version">
-
+  <PropertyGroup Label="MinVer settings">
+    <!-- Start on 1.0 instead of 0.0 -->
+    <MinVerMinimumMajorMinor>1.0</MinVerMinimumMajorMinor>
+    <MinVerDefaultPreReleasePhase>preview</MinVerDefaultPreReleasePhase>
   </PropertyGroup>
 </Project>

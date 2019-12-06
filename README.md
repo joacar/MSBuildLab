@@ -22,7 +22,7 @@ For full list of available libraries check [here](https://github.com/dotnet/sour
 
 ### Usage
 
-Place the snippet in Directory.Build.targets
+Place the snippet in Directory.Build.targets file src folder.
 
 ```xml
   <PropertyGroup>

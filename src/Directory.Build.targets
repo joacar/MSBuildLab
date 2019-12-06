@@ -5,6 +5,7 @@
     <CI Condition="'$(CI)' == ''">false</CI>
   </PropertyGroup>
 
+  <Import Project="../Version.targets" />
   <Import Project="../SourceLink.targets" Condition="'$(CI)' == 'true'" />
 
 </Project>

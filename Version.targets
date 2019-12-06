@@ -1,0 +1,16 @@
+﻿<!--Root -->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <ItemGroup>
+    <PackageReference Include="MinVer" Version="2.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <Target Name="UpdateVersion" AfterTargets="MinVer">
+    <Message Text="GitCommitId: $(GitCommitId)" Importance="High" />
+    <Message Text="GitCommitHash: $(GitCommitHash)" Importance="High" />
+    <Message Text="MinVerBuildMetadata: $(MinVerBuildMetadata)" Importance="High" />
+    <Message Text="MinVerAutoIncrement: $(MinVerAutoIncrement)" Importance="High" />
+    <Message Text="MinVerVersion: $(MinVerVersion)" Importance="High" />
+  </Target>
+
+</Project>

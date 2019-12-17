@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Nullable>enable</Nullable>
     <LangVersion>8.0</LangVersion>
-    <ArtifactsDir>$(MSBuildStartupDirectory)/.artifacts</ArtifactsDir>
+    <ArtifactsDir Condition="'$(ArtifactsDir)' == ''">$(MSBuildStartupDirectory)/.artifacts</ArtifactsDir>
   </PropertyGroup>
 
   <PropertyGroup>

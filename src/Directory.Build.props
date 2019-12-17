@@ -15,7 +15,7 @@
     <PackageReleaseNotes>
       <!-- Release notes goes here -->
     </PackageReleaseNotes>
-    <PackageOutputPath>$(MSBuildStartupDirectory)/.artifacts</PackageOutputPath>
+    <PackageOutputPath>$(ArtifactsDir)</PackageOutputPath>
     <RepositoryUrl>https://github.com/joacar/MSBuildLab</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>

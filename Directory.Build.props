@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <BaseIntermediateOutputPath>$(ArtifactsDir)/build/obj/$(MSBuildProjectName)/</BaseIntermediateOutputPath>
-    <BaseOutputPath>$(ArtifactsDir)/build/bin/$(MSBuildProjectName)/</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(ArtifactsDir)/build/$(MSBuildProjectName)/obj/</BaseIntermediateOutputPath>
+    <BaseOutputPath>$(ArtifactsDir)/build/$(MSBuildProjectName)/bin/</BaseOutputPath>
   </PropertyGroup>
 
   <Import Project="Version.props" />

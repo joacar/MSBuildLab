@@ -8,7 +8,11 @@
   <Import Project="../Version.targets" />
   <Import Project="../SourceLink.targets" Condition="'$(CI)' == 'true'" />
 
-  <Target Name="SetBuildNumber" Condition="'$(CI)' == 'true' AND '$(IsPackable)' == 'true'">
+  <!--
+    Setting AfterTargets="MinVer" will have complete version, example 1.0.0-preview.0.<#commits>
+    Each commit will change the count and hence the revision will be reset (I guess? Testing now)
+  -->
+  <Target Name="SetBuildNumber" AfterTargets="MinVer" Condition="'$(CI)' == 'true' AND '$(IsPackable)' == 'true'">
     <Message Importance="High" Text="##vso[build.updatebuildnumber]$(PackageVersion)" />
   </Target>
 

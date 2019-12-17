@@ -43,6 +43,7 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/nuget'
+    # PackageOutputPath is set to '$(ArtifactsDir)/nuget' and ignored from AzDo Pipeline
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/.*nupkg'
     ArtifactName: 'drop'
     publishLocation: 'Container'

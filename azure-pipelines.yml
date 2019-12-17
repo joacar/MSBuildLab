@@ -22,7 +22,7 @@ steps:
   displayName: "build"
   inputs:
     command: 'build'
-    arguments: '-c $(BuildConfiguration)'
+    arguments: '-c $(BuildConfiguration) -t:SetBuildNumber'
     projects: 'src/**/*.csproj'
 
 - task: DotNetCoreCLI@2

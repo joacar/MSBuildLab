@@ -9,7 +9,7 @@
   <Import Project="../SourceLink.targets" Condition="'$(CI)' == 'true'" />
 
   <Target Name="SetBuildNumber" Condition="'$(CI)' == 'true' AND '$(IsPackable)' == 'true'">
-    <Message Importance="High" Text="##vso[build.updatebuildnumber]$(PackageVersion)(rev:.r)" />
+    <Message Importance="High" Text="##vso[build.updatebuildnumber]$(PackageVersion)" />
   </Target>
 
 </Project>

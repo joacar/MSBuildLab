@@ -10,6 +10,7 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
   ci: true
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
@@ -37,10 +38,10 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
-    packagesToPack: '**/*.csproj'
+    packagesToPack: 'src/**/*.csproj'
     nobuild: true
     versioningScheme: 'off'
-    arguments: "-o $(Build.ArtifactStagingDirectory)"
+    arguments: "-p:PackageOutputPath=$(Build.ArtifactStagingDirectory)"
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'

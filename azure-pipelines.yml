@@ -24,11 +24,11 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: 'src/*.csproj'
+    projects: 'src/**/*.csproj'
     arguments: '-c $(BuildConfiguration)'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
-    projects: 'test/*.csproj'
+    projects: 'test/**/*.csproj'
     arguments: '--no-build'

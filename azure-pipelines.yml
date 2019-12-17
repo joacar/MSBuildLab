@@ -36,6 +36,7 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: 'src/**/*.csproj'
+    arguments: '-c $(BuildConfiguration)'
     nobuild: true
     versioningScheme: 'off'
 

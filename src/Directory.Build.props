@@ -15,7 +15,7 @@
     <PackageReleaseNotes>
       <!-- Release notes goes here -->
     </PackageReleaseNotes>
-    <PackageOutputPath>$(ArtifactsDir)</PackageOutputPath>
+    <PackageOutputPath>$(ArtifactsDir)/nuget/</PackageOutputPath>
     <RepositoryUrl>https://github.com/joacar/MSBuildLab</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>

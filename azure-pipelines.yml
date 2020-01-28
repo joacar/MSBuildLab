@@ -22,8 +22,8 @@ steps:
   displayName: "build"
   inputs:
     command: 'build'
-    # Will invoking Target crash pack-step?
-    arguments: '-c $(BuildConfiguration) -t:SetBuildNumber'
+    # Will invoking Target crash pack-step? Yes, it does
+    arguments: '-c $(BuildConfiguration)' # -t:SetBuildNumber
     projects: 'src/**/*.csproj'
 
 - task: DotNetCoreCLI@2

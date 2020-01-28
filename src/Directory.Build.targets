@@ -3,6 +3,8 @@
 
   <PropertyGroup>
     <CI Condition="'$(CI)' == ''">false</CI>
+    <!-- Used by SourceLink https://github.com/dotnet/sourcelink/blob/master/docs/README.md#continuousintegrationbuild -->
+    <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
   </PropertyGroup>
 
   <Import Project="../Version.targets" />

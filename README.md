@@ -68,3 +68,6 @@ To set the `RevisionId` from example environment variable on other build system,
 ## Git information
 
 Included MSBuild task for retrieving Git information and generate file so it can easily be retrieved at run time.
+
+TODO: Include repository URL `git config --get remote.origin.url` by generating MSBuld property and append to assembly file (if possible)
+ 

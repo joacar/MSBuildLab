@@ -2,6 +2,9 @@
 
 Experiment with MSBuild
 
+* [GitInfo](https://github.com/kzu/GitInfo)
+* [MinVer](https://github.com/adamralph/minver)
+
 ## Integration tests
 
 Goal: Filter what test projects to run based on certain condition
@@ -61,3 +64,7 @@ To set the `RevisionId` from example environment variable on other build system,
 <!-- src/Directory.Build.targets -->
 <Import Project="../Version.targets" />
 ```
+
+## Git information
+
+Included MSBuild task for retrieving Git information and generate file so it can easily be retrieved at run time.

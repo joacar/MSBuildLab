@@ -1,12 +1,26 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <PackageReference Include="MinVer" Version="2.0.0" PrivateAssets="All" />
+    <!-- Assembly and NuGet versioning based on Git tag -->
+    <PackageReference Include="MinVer" Version="2.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+
+    <!--More Git information -->
+    <PackageReference Include="GitInfo" Version="2.0.26">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
+  <!-- SetVersion -->
   <Target Name="UpdateVersion" AfterTargets="MinVer">
+    
     <PropertyGroup>
       <!-- Get revision from AzDo. This is typically in Build number format as $(rev:.r) -->
       <RevisionId Condition="'$(RevisionId)' == ''">$(BUILD_BUILDID)</RevisionId>
+      <!--If revision is not avaiable, resort the git height (#commits) since last tag -->
+      <RevisionId Condition="'$(RevisionId)' == ''">$(GitCommits)</RevisionId>
       <RevisionId Condition="'$(RevisionId)' == ''">0</RevisionId>
 
       <!-- Write correct values to AssmeblyInfo.cs -->
@@ -15,4 +29,5 @@
       <FileVersion>$(AssemblyFileVersion)</FileVersion>
     </PropertyGroup>
   </Target>
+
 </Project>

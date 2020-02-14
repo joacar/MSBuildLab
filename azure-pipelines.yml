@@ -43,8 +43,11 @@ steps:
     versioningScheme: 'off'
 
 - task: PublishBuildArtifacts@1
+  displayName: "Publish NuGet"
   inputs:
     # PackageOutputPath is set to '$(ArtifactsDir)/nuget' and ignored from AzDo Pipeline
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/nuget'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+
+# TODO: Compress binaries $(Build.ArtifactStagingDirectory)/bin and publish

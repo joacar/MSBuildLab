@@ -24,7 +24,6 @@
       <RevisionId Condition="'$(RevisionId)' == ''">0</RevisionId>
 
       <!-- Write correct values to AssmeblyInfo.cs -->
-      <AssemblyVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch)</AssemblyVersion>
       <AssemblyFileVersion>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).$(RevisionId)</AssemblyFileVersion>
       <FileVersion>$(AssemblyFileVersion)</FileVersion>
     </PropertyGroup>

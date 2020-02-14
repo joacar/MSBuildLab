@@ -17,7 +17,9 @@
   <Target Name="UpdateVersion" AfterTargets="MinVer">
     
     <PropertyGroup>
-      <!-- Get revision from AzDo. This is typically in Build number format as $(rev:.r) -->
+      <!--
+        Build.BuildId will be the unique id for the completed build
+      -->
       <RevisionId Condition="'$(RevisionId)' == ''">$(BUILD_BUILDID)</RevisionId>
       <!--If revision is not avaiable, resort the git height (#commits) since last tag -->
       <RevisionId Condition="'$(RevisionId)' == ''">$(GitCommits)</RevisionId>

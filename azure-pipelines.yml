@@ -9,7 +9,7 @@ variables:
   ci: true  
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
-  artifactsDir: '$(Build.ArtifactStagingDirectory)'
+  artifactsDir: '$(Agent.TempDirectory)' #'$(Build.ArtifactStagingDirectory)'
 
 steps:
 - task: UseDotNet@2
@@ -46,7 +46,7 @@ steps:
   displayName: "Publish NuGet"
   inputs:
     # PackageOutputPath is set to '$(ArtifactsDir)/nuget' and ignored from AzDo Pipeline
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)/nuget'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
